@@ -31,10 +31,10 @@ public class DefaultMessagesActivity extends DemoMessagesActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_default_messages);
 
-        this.messagesList = (MessagesList) findViewById(R.id.messagesList);
+        this.messagesList = findViewById(R.id.messagesList);
         initAdapter();
 
-        MessageInput input = (MessageInput) findViewById(R.id.input);
+        MessageInput input = findViewById(R.id.input);
         input.setInputListener(this);
         input.setTypingListener(this);
         input.setAttachmentsListener(this);

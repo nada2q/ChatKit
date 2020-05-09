@@ -18,15 +18,16 @@ package com.stfalcon.chatkit.dialogs;
 
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.stfalcon.chatkit.R;
 import com.stfalcon.chatkit.commons.ImageLoader;
@@ -525,15 +526,15 @@ public class DialogsListAdapter<DIALOG extends IDialog>
 
         public DialogViewHolder(View itemView) {
             super(itemView);
-            root = (ViewGroup) itemView.findViewById(R.id.dialogRootLayout);
-            container = (ViewGroup) itemView.findViewById(R.id.dialogContainer);
-            tvName = (TextView) itemView.findViewById(R.id.dialogName);
-            tvDate = (TextView) itemView.findViewById(R.id.dialogDate);
-            tvLastMessage = (TextView) itemView.findViewById(R.id.dialogLastMessage);
-            tvBubble = (TextView) itemView.findViewById(R.id.dialogUnreadBubble);
-            ivLastMessageUser = (ImageView) itemView.findViewById(R.id.dialogLastMessageUserAvatar);
-            ivAvatar = (ImageView) itemView.findViewById(R.id.dialogAvatar);
-            dividerContainer = (ViewGroup) itemView.findViewById(R.id.dialogDividerContainer);
+            root = itemView.findViewById(R.id.dialogRootLayout);
+            container = itemView.findViewById(R.id.dialogContainer);
+            tvName = itemView.findViewById(R.id.dialogName);
+            tvDate = itemView.findViewById(R.id.dialogDate);
+            tvLastMessage = itemView.findViewById(R.id.dialogLastMessage);
+            tvBubble = itemView.findViewById(R.id.dialogUnreadBubble);
+            ivLastMessageUser = itemView.findViewById(R.id.dialogLastMessageUserAvatar);
+            ivAvatar = itemView.findViewById(R.id.dialogAvatar);
+            dividerContainer = itemView.findViewById(R.id.dialogDividerContainer);
             divider = itemView.findViewById(R.id.dialogDivider);
 
         }
