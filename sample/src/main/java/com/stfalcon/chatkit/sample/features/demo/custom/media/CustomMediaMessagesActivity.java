@@ -24,12 +24,11 @@ public class CustomMediaMessagesActivity extends DemoMessagesActivity
         DialogInterface.OnClickListener {
 
     private static final byte CONTENT_TYPE_VOICE = 1;
+    private MessagesList messagesList;
 
     public static void open(Context context) {
         context.startActivity(new Intent(context, CustomMediaMessagesActivity.class));
     }
-
-    private MessagesList messagesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

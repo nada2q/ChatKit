@@ -9,17 +9,6 @@ import java.util.UUID;
  */
 abstract class FixturesData {
 
-    static SecureRandom rnd = new SecureRandom();
-
-    static ArrayList<String> avatars = new ArrayList<String>() {
-        {
-            add("http://i.imgur.com/pv1tBmT.png");
-            add("http://i.imgur.com/R3Jm1CL.png");
-            add("http://i.imgur.com/ROz4Jgh.png");
-            add("http://i.imgur.com/Qn9UesZ.png");
-        }
-    };
-
     static final ArrayList<String> groupChatImages = new ArrayList<String>() {
         {
             add("http://i.imgur.com/hRShCT3.png");
@@ -27,7 +16,6 @@ abstract class FixturesData {
             add("http://i.imgur.com/mRqh5w1.png");
         }
     };
-
     static final ArrayList<String> groupChatTitles = new ArrayList<String>() {
         {
             add("Samuel, Michelle");
@@ -35,7 +23,6 @@ abstract class FixturesData {
             add("Julia, Angel, Kyle, Jordan");
         }
     };
-
     static final ArrayList<String> names = new ArrayList<String>() {
         {
             add("Samuel Reynolds");
@@ -51,7 +38,6 @@ abstract class FixturesData {
             add("Michelle Macey");
         }
     };
-
     static final ArrayList<String> messages = new ArrayList<String>() {
         {
             add("Hello!");
@@ -67,11 +53,19 @@ abstract class FixturesData {
             add("Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door.");
         }
     };
-
     static final ArrayList<String> images = new ArrayList<String>() {
         {
             add("https://habrastorage.org/getpro/habr/post_images/e4b/067/b17/e4b067b17a3e414083f7420351db272b.jpg");
             add("https://cdn.pixabay.com/photo/2017/12/25/17/48/waters-3038803_1280.jpg");
+        }
+    };
+    static SecureRandom rnd = new SecureRandom();
+    static ArrayList<String> avatars = new ArrayList<String>() {
+        {
+            add("http://i.imgur.com/pv1tBmT.png");
+            add("http://i.imgur.com/R3Jm1CL.png");
+            add("http://i.imgur.com/ROz4Jgh.png");
+            add("http://i.imgur.com/Qn9UesZ.png");
         }
     };
 

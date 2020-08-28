@@ -17,11 +17,11 @@ import java.util.Date;
 public class StyledDialogsActivity extends DemoDialogsActivity
         implements DateFormatter.Formatter {
 
+    private DialogsList dialogsList;
+
     public static void open(Context context) {
         context.startActivity(new Intent(context, StyledDialogsActivity.class));
     }
-
-    private DialogsList dialogsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

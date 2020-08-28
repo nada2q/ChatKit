@@ -86,6 +86,10 @@ class MessageInputStyle extends Style {
 
     private int delayTypingStatus;
 
+    private MessageInputStyle(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
     static MessageInputStyle parse(Context context, AttributeSet attrs) {
         MessageInputStyle style = new MessageInputStyle(context, attrs);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MessageInput);
@@ -153,10 +157,6 @@ class MessageInputStyle extends Style {
         style.inputDefaultPaddingBottom = style.getDimension(R.dimen.input_padding_bottom);
 
         return style;
-    }
-
-    private MessageInputStyle(Context context, AttributeSet attrs) {
-        super(context, attrs);
     }
 
     private Drawable getSelector(@ColorInt int normalColor, @ColorInt int pressedColor,

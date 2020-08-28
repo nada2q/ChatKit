@@ -19,11 +19,11 @@ public class StyledMessagesActivity extends DemoMessagesActivity
         MessageInput.AttachmentsListener,
         DateFormatter.Formatter {
 
+    private MessagesList messagesList;
+
     public static void open(Context context) {
         context.startActivity(new Intent(context, StyledMessagesActivity.class));
     }
-
-    private MessagesList messagesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

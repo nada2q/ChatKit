@@ -13,11 +13,11 @@ import com.stfalcon.chatkit.sample.features.demo.DemoDialogsActivity;
 
 public class CustomLayoutDialogsActivity extends DemoDialogsActivity {
 
+    private DialogsList dialogsList;
+
     public static void open(Context context) {
         context.startActivity(new Intent(context, CustomLayoutDialogsActivity.class));
     }
-
-    private DialogsList dialogsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

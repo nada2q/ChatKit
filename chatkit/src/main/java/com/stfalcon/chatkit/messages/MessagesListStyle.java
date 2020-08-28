@@ -102,6 +102,10 @@ class MessagesListStyle extends Style {
     private int dateHeaderTextSize;
     private int dateHeaderTextStyle;
 
+    private MessagesListStyle(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
     static MessagesListStyle parse(Context context, AttributeSet attrs) {
         MessagesListStyle style = new MessagesListStyle(context, attrs);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MessagesList);
@@ -209,10 +213,6 @@ class MessagesListStyle extends Style {
         typedArray.recycle();
 
         return style;
-    }
-
-    private MessagesListStyle(Context context, AttributeSet attrs) {
-        super(context, attrs);
     }
 
     private Drawable getMessageSelector(@ColorInt int normalColor, @ColorInt int selectedColor,

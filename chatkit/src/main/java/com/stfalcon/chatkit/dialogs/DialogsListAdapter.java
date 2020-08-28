@@ -217,8 +217,9 @@ public class DialogsListAdapter<DIALOG extends IDialog>
 
     /**
      * Move an item
+     *
      * @param fromPosition the actual position of the item
-     * @param toPosition the new position of the item
+     * @param toPosition   the new position of the item
      */
     public void moveItem(int fromPosition, int toPosition) {
         DIALOG dialog = items.remove(fromPosition);
@@ -444,15 +445,15 @@ public class DialogsListAdapter<DIALOG extends IDialog>
     }
 
     /**
-    * @return the position of a dialog in the dialogs list.
-    */
+     * @return the position of a dialog in the dialogs list.
+     */
     public int getDialogPosition(DIALOG dialog) {
         return this.items.indexOf(dialog);
     }
 
     /*
-    * LISTENERS
-    * */
+     * LISTENERS
+     * */
     public interface OnDialogClickListener<DIALOG extends IDialog> {
         void onDialogClick(DIALOG dialog);
     }
@@ -470,8 +471,8 @@ public class DialogsListAdapter<DIALOG extends IDialog>
     }
 
     /*
-    * HOLDERS
-    * */
+     * HOLDERS
+     * */
     public abstract static class BaseDialogViewHolder<DIALOG extends IDialog>
             extends ViewHolder<DIALOG> {
 

@@ -14,11 +14,11 @@ import com.stfalcon.chatkit.sample.features.demo.custom.holder.holders.dialogs.C
 
 public class CustomHolderDialogsActivity extends DemoDialogsActivity {
 
+    private DialogsList dialogsList;
+
     public static void open(Context context) {
         context.startActivity(new Intent(context, CustomHolderDialogsActivity.class));
     }
-
-    private DialogsList dialogsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

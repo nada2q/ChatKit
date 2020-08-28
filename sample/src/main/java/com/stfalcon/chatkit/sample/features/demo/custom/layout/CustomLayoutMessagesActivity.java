@@ -19,11 +19,11 @@ public class CustomLayoutMessagesActivity extends DemoMessagesActivity
         MessageInput.InputListener,
         MessageInput.AttachmentsListener {
 
+    private MessagesList messagesList;
+
     public static void open(Context context) {
         context.startActivity(new Intent(context, CustomLayoutMessagesActivity.class));
     }
-
-    private MessagesList messagesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

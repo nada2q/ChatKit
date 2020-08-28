@@ -40,9 +40,17 @@ public class Message implements IMessage,
         return text;
     }
 
+    public void setText(String text) {
+        this.text = text;
+    }
+
     @Override
     public Date getCreatedAt() {
         return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override
@@ -59,24 +67,16 @@ public class Message implements IMessage,
         return voice;
     }
 
+    public void setVoice(Voice voice) {
+        this.voice = voice;
+    }
+
     public String getStatus() {
         return "Sent";
     }
 
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public void setImage(Image image) {
         this.image = image;
-    }
-
-    public void setVoice(Voice voice) {
-        this.voice = voice;
     }
 
     public static class Image {

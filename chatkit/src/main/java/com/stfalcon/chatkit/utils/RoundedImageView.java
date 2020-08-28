@@ -19,7 +19,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
@@ -127,14 +126,11 @@ public class RoundedImageView extends AppCompatImageView {
     }
 
     private static class RoundedCornerDrawable extends Drawable {
-        private RectF mBounds = new RectF();
-
         private final RectF mBitmapRect = new RectF();
         private final int mBitmapWidth;
         private final int mBitmapHeight;
-
         private final Paint mBitmapPaint;
-
+        private RectF mBounds = new RectF();
         private BitmapShader mBitmapShader;
 
         private float[] mRadii = new float[]{0, 0, 0, 0, 0, 0, 0, 0};

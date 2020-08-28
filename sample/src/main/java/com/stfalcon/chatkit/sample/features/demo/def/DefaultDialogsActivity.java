@@ -14,11 +14,11 @@ import com.stfalcon.chatkit.sample.features.demo.DemoDialogsActivity;
 
 public class DefaultDialogsActivity extends DemoDialogsActivity {
 
+    private DialogsList dialogsList;
+
     public static void open(Context context) {
         context.startActivity(new Intent(context, DefaultDialogsActivity.class));
     }
-
-    private DialogsList dialogsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

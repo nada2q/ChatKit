@@ -103,20 +103,6 @@ public final class DateFormatter {
         return isSameYear(calendar, Calendar.getInstance());
     }
 
-    /**
-     * Interface used to format dates before they were displayed (e.g. dialogs time, messages date headers etc.).
-     */
-    public interface Formatter {
-
-        /**
-         * Formats an string representation of the date object.
-         *
-         * @param date The date that should be formatted.
-         * @return Formatted text.
-         */
-        String format(Date date);
-    }
-
     public enum Template {
         STRING_DAY_MONTH_YEAR("d MMMM yyyy"),
         STRING_DAY_MONTH("d MMMM"),
@@ -131,5 +117,19 @@ public final class DateFormatter {
         public String get() {
             return template;
         }
+    }
+
+    /**
+     * Interface used to format dates before they were displayed (e.g. dialogs time, messages date headers etc.).
+     */
+    public interface Formatter {
+
+        /**
+         * Formats an string representation of the date object.
+         *
+         * @param date The date that should be formatted.
+         * @return Formatted text.
+         */
+        String format(Date date);
     }
 }

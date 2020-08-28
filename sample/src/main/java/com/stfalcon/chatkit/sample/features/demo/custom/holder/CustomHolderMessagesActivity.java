@@ -24,11 +24,11 @@ public class CustomHolderMessagesActivity extends DemoMessagesActivity
         MessageInput.InputListener,
         MessageInput.AttachmentsListener {
 
+    private MessagesList messagesList;
+
     public static void open(Context context) {
         context.startActivity(new Intent(context, CustomHolderMessagesActivity.class));
     }
-
-    private MessagesList messagesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

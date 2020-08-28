@@ -519,25 +519,6 @@ public class MessageHolders {
      * INTERFACES
      * */
 
-    /**
-     * The interface, which contains logic for checking the availability of content.
-     */
-    public interface ContentChecker<MESSAGE extends IMessage> {
-
-        /**
-         * Checks the availability of content.
-         *
-         * @param message current message in list.
-         * @param type    content type, for which content availability is determined.
-         * @return weather the message has content for the current message.
-         */
-        boolean hasContentFor(MESSAGE message, byte type);
-    }
-
-    /*
-     * PRIVATE METHODS
-     * */
-
     protected ViewHolder getHolder(ViewGroup parent, int viewType, MessagesListStyle messagesListStyle) {
         switch (viewType) {
             case VIEW_TYPE_DATE_HEADER:
@@ -562,6 +543,10 @@ public class MessageHolders {
         }
         throw new IllegalStateException("Wrong message view type. Please, report this issue on GitHub with full stacktrace in description.");
     }
+
+    /*
+     * PRIVATE METHODS
+     * */
 
     @SuppressWarnings("unchecked")
     protected void bind(final ViewHolder holder, final Object item, boolean isSelected,
@@ -595,7 +580,6 @@ public class MessageHolders {
 
         holder.onBind(item);
     }
-
 
     protected int getViewType(Object item, String senderId) {
         boolean isOutcoming = false;
@@ -665,9 +649,28 @@ public class MessageHolders {
         return VIEW_TYPE_TEXT_MESSAGE;
     }
 
+    /**
+     * The interface, which contains logic for checking the availability of content.
+     */
+    public interface ContentChecker<MESSAGE extends IMessage> {
+
+        /**
+         * Checks the availability of content.
+         *
+         * @param message current message in list.
+         * @param type    content type, for which content availability is determined.
+         * @return weather the message has content for the current message.
+         */
+        boolean hasContentFor(MESSAGE message, byte type);
+    }
+
     /*
      * HOLDERS
      * */
+
+    interface DefaultMessageViewHolder {
+        void applyStyle(MessagesListStyle style);
+    }
 
     /**
      * The base class for view holders for incoming and outcoming message.
@@ -675,17 +678,15 @@ public class MessageHolders {
      */
     public static abstract class BaseMessageViewHolder<MESSAGE extends IMessage> extends ViewHolder<MESSAGE> {
 
-        boolean isSelected;
-
         /**
          * For setting custom data to ViewHolder
          */
         protected Object payload;
-
         /**
          * Callback for implementing images loading in message list
          */
         protected ImageLoader imageLoader;
+        boolean isSelected;
 
         @Deprecated
         public BaseMessageViewHolder(View itemView) {
@@ -1095,6 +1096,10 @@ public class MessageHolders {
         }
     }
 
+    /*
+     * DEFAULTS
+     * */
+
     /**
      * Base view holder for outcoming message
      */
@@ -1133,14 +1138,6 @@ public class MessageHolders {
         private void init(View itemView) {
             time = itemView.findViewById(R.id.messageTime);
         }
-    }
-
-    /*
-     * DEFAULTS
-     * */
-
-    interface DefaultMessageViewHolder {
-        void applyStyle(MessagesListStyle style);
     }
 
     private static class DefaultIncomingTextMessageViewHolder

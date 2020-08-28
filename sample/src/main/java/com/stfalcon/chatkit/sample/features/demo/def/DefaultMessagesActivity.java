@@ -20,11 +20,11 @@ public class DefaultMessagesActivity extends DemoMessagesActivity
         MessageInput.AttachmentsListener,
         MessageInput.TypingListener {
 
+    private MessagesList messagesList;
+
     public static void open(Context context) {
         context.startActivity(new Intent(context, DefaultMessagesActivity.class));
     }
-
-    private MessagesList messagesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
