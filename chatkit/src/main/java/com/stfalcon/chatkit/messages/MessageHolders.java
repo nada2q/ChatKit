@@ -1045,6 +1045,13 @@ public class MessageHolders {
 
         @Override
         public void applyStyle(MessagesListStyle style) {
+            if (text.getText().toString().isEmpty()) {
+                return;
+            } else {
+                text.setLayoutParams(new LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
+                text.setGravity(Gravity.CENTER_HORIZONTAL);
+            }
+
             if (text != null) {
                 text.setTextColor(style.getDateHeaderTextColor());
                 text.setTextSize(TypedValue.COMPLEX_UNIT_PX, style.getDateHeaderTextSize());
