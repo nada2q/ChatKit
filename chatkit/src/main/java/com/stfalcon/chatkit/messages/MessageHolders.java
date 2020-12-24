@@ -1029,7 +1029,10 @@ public class MessageHolders {
 
         @Override
         public void applyStyle(MessagesListStyle style) {
-            if (text.getText().toString().isEmpty()) return;
+            if (text.getText().toString().isEmpty()) {
+                text.setVisibility(View.GONE);
+                return;
+            }
 
             if (text != null) {
                 text.setTextColor(style.getDateHeaderTextColor());
