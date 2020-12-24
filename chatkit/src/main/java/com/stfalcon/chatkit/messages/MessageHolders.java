@@ -30,6 +30,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static android.view.ViewGroup.*;
+import static android.view.ViewGroup.LayoutParams.*;
 import static androidx.core.text.HtmlCompat.FROM_HTML_MODE_LEGACY;
 
 /*
@@ -1034,6 +1036,7 @@ public class MessageHolders {
                     text.setVisibility(View.GONE);
                 } else {
                     this.text.setText(formattedDate);
+                    text.setLayoutParams(new LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
                 }
             }
         }
@@ -1041,9 +1044,9 @@ public class MessageHolders {
         @Override
         public void applyStyle(MessagesListStyle style) {
             if (text.getText().toString().isEmpty()) {
-                text.getLayoutParams().height = 0;
-                text.setVisibility(View.GONE);
                 return;
+            } else {
+                text.setLayoutParams(new LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
             }
 
             if (text != null) {
