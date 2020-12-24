@@ -32,4 +32,6 @@
     <string name="start_typing_status">Start typing</string>
     <string name="stop_typing_status">Stop typing</string>
 
+    <string name="offer_pending_seller_title"><![CDATA[<b>Offer received<b/>]]></string>
+
 </resources>

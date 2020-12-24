@@ -13,17 +13,17 @@ public class Message implements IMessage,
         MessageContentType /*and this one is for custom content type (in this case - voice message)*/ {
 
     private String id;
-    private String text;
+    private CharSequence text;
     private Date createdAt;
     private User user;
     private Image image;
     private Voice voice;
 
-    public Message(String id, User user, String text) {
+    public Message(String id, User user, CharSequence text) {
         this(id, user, text, new Date());
     }
 
-    public Message(String id, User user, String text, Date createdAt) {
+    public Message(String id, User user, CharSequence text, Date createdAt) {
         this.id = id;
         this.text = text;
         this.user = user;
@@ -36,11 +36,11 @@ public class Message implements IMessage,
     }
 
     @Override
-    public String getText() {
+    public CharSequence getText() {
         return text;
     }
 
-    public void setText(String text) {
+    public void setText(CharSequence text) {
         this.text = text;
     }
 

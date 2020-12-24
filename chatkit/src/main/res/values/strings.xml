@@ -1,1 +1,5 @@
-<resources />
+<resources >
+
+    <string name="offer_pending_seller_title"><![CDATA[<b>Offer received<b/>]]></string>
+
+</resources>

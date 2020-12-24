@@ -2,6 +2,7 @@ package com.stfalcon.chatkit.sample.features.demo;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.text.HtmlCompat;
 
 import com.squareup.picasso.Picasso;
 import com.stfalcon.chatkit.commons.ImageLoader;
@@ -16,12 +18,15 @@ import com.stfalcon.chatkit.messages.MessagesListAdapter;
 import com.stfalcon.chatkit.sample.R;
 import com.stfalcon.chatkit.sample.common.data.fixtures.MessagesFixtures;
 import com.stfalcon.chatkit.sample.common.data.model.Message;
+import com.stfalcon.chatkit.sample.common.data.model.User;
 import com.stfalcon.chatkit.sample.utils.AppUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+
+import static androidx.core.text.HtmlCompat.FROM_HTML_MODE_LEGACY;
 
 /*
  * Created by troy379 on 04.04.17.
@@ -30,7 +35,7 @@ public abstract class DemoMessagesActivity extends AppCompatActivity
         implements MessagesListAdapter.SelectionListener,
         MessagesListAdapter.OnLoadMoreListener {
 
-    private static final int TOTAL_MESSAGES_COUNT = 100;
+    private static final int TOTAL_MESSAGES_COUNT = 20;
 
     protected final String senderId = "0";
     protected ImageLoader imageLoader;
@@ -95,6 +100,10 @@ public abstract class DemoMessagesActivity extends AppCompatActivity
         if (totalItemsCount < TOTAL_MESSAGES_COUNT) {
             loadMessages();
         }
+        Spanned spanned = HtmlCompat.fromHtml(getString(R.string.offer_pending_seller_title), FROM_HTML_MODE_LEGACY);
+//        messagesAdapter.addToStart(new Message("99", new User("a", "Al", "", false), "sada"), false);
+//        messagesAdapter.addToStart(new Message("99", new User("a", "Al", "", false), getString(R.string.offer_pending_seller_title)), false);
+        messagesAdapter.addToStart(new Message("99", new User("a", "Al", "", false), spanned), false);
     }
 
     @Override
@@ -112,7 +121,7 @@ public abstract class DemoMessagesActivity extends AppCompatActivity
                 lastLoadedDate = messages.get(messages.size() - 1).getCreatedAt();
                 messagesAdapter.addToEnd(messages, false);
             }
-        }, 1000);
+        }, 10);
     }
 
     private MessagesListAdapter.Formatter<Message> getMessageStringFormatter() {
@@ -122,7 +131,7 @@ public abstract class DemoMessagesActivity extends AppCompatActivity
                 String createdAt = new SimpleDateFormat("MMM d, EEE 'at' h:mm a", Locale.getDefault())
                         .format(message.getCreatedAt());
 
-                String text = message.getText();
+                CharSequence text = message.getText();
                 if (text == null) text = "[attachment]";
 
                 return String.format(Locale.getDefault(), "%s: %s (%s)",
