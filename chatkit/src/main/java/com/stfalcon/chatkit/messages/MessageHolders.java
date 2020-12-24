@@ -1,11 +1,9 @@
 package com.stfalcon.chatkit.messages;
 
 import android.text.Spannable;
-import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.util.SparseArray;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,7 +13,6 @@ import android.widget.TextView;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
-import androidx.core.text.HtmlCompat;
 import androidx.core.view.ViewCompat;
 
 import com.stfalcon.chatkit.R;
@@ -31,9 +28,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static android.view.ViewGroup.*;
-import static android.view.ViewGroup.LayoutParams.*;
-import static androidx.core.text.HtmlCompat.FROM_HTML_MODE_LEGACY;
+import static android.view.ViewGroup.LayoutParams;
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 /*
  * Created by troy379 on 31.03.17.
@@ -776,10 +773,7 @@ public class MessageHolders {
             }
 
             if (text != null) {
-                Spanned spanned = HtmlCompat.fromHtml(itemView.getContext().getString(R.string.offer_pending_seller_title), FROM_HTML_MODE_LEGACY);
-                System.out.println("spanned = " + spanned);
-                System.out.println("message.getText() = " + message.getText());
-                text.setText(spanned);
+                text.setText(message.getText());
             }
         }
 
