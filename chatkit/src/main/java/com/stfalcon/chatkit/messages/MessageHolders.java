@@ -1029,7 +1029,9 @@ public class MessageHolders {
 
         @Override
         public void applyStyle(MessagesListStyle style) {
-            if (text != null && !text.getText().toString().isEmpty()) {
+            if (text.getText().toString().isEmpty()) return;
+
+            if (text != null) {
                 text.setTextColor(style.getDateHeaderTextColor());
                 text.setTextSize(TypedValue.COMPLEX_UNIT_PX, style.getDateHeaderTextSize());
                 text.setTypeface(text.getTypeface(), style.getDateHeaderTextStyle());
