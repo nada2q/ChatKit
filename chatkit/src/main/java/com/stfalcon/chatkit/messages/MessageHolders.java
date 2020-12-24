@@ -1023,36 +1023,38 @@ public class MessageHolders {
 
         @Override
         public void onBind(Date date) {
-//            if (text != null) {
-//                String formattedDate = null;
-//                if (dateHeadersFormatter != null) formattedDate = dateHeadersFormatter.format(date);
-//
-//                formattedDate = formattedDate == null ? DateFormatter.format(date, dateFormat) : formattedDate;
-//
-//                if (formattedDate.isEmpty()) {
-//                    text.setVisibility(View.GONE);
-//                } else {
-//                    this.text.setText(formattedDate);
-//                }
-//            }
+            if (text != null) {
+                String formattedDate = null;
+                if (dateHeadersFormatter != null) formattedDate = dateHeadersFormatter.format(date);
+
+                formattedDate = formattedDate == null ? DateFormatter.format(date, dateFormat) : formattedDate;
+
+                if (formattedDate.isEmpty()) {
+                    text.getLayoutParams().height = 0;
+                    text.setVisibility(View.GONE);
+                } else {
+                    this.text.setText(formattedDate);
+                }
+            }
         }
 
         @Override
         public void applyStyle(MessagesListStyle style) {
-//            if (text.getText().toString().isEmpty()) {
-//                text.setVisibility(View.GONE);
-//                return;
-//            }
-//
-//            if (text != null) {
-//                text.setTextColor(style.getDateHeaderTextColor());
-//                text.setTextSize(TypedValue.COMPLEX_UNIT_PX, style.getDateHeaderTextSize());
-//                text.setTypeface(text.getTypeface(), style.getDateHeaderTextStyle());
-//                text.setPadding(style.getDateHeaderPadding(), style.getDateHeaderPadding(),
-//                        style.getDateHeaderPadding(), style.getDateHeaderPadding());
-//            }
-//            dateFormat = style.getDateHeaderFormat();
-//            dateFormat = dateFormat == null ? DateFormatter.Template.STRING_DAY_MONTH_YEAR.get() : dateFormat;
+            if (text.getText().toString().isEmpty()) {
+                text.getLayoutParams().height = 0;
+                text.setVisibility(View.GONE);
+                return;
+            }
+
+            if (text != null) {
+                text.setTextColor(style.getDateHeaderTextColor());
+                text.setTextSize(TypedValue.COMPLEX_UNIT_PX, style.getDateHeaderTextSize());
+                text.setTypeface(text.getTypeface(), style.getDateHeaderTextStyle());
+                text.setPadding(style.getDateHeaderPadding(), style.getDateHeaderPadding(),
+                        style.getDateHeaderPadding(), style.getDateHeaderPadding());
+            }
+            dateFormat = style.getDateHeaderFormat();
+            dateFormat = dateFormat == null ? DateFormatter.Template.STRING_DAY_MONTH_YEAR.get() : dateFormat;
         }
     }
 
