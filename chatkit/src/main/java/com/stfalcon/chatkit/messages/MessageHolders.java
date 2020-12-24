@@ -5,6 +5,7 @@ import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.util.SparseArray;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -1037,18 +1038,13 @@ public class MessageHolders {
                 } else {
                     this.text.setText(formattedDate);
                     text.setLayoutParams(new LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
+                    text.setGravity(Gravity.CENTER_HORIZONTAL);
                 }
             }
         }
 
         @Override
         public void applyStyle(MessagesListStyle style) {
-            if (text.getText().toString().isEmpty()) {
-                return;
-            } else {
-                text.setLayoutParams(new LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
-            }
-
             if (text != null) {
                 text.setTextColor(style.getDateHeaderTextColor());
                 text.setTextSize(TypedValue.COMPLEX_UNIT_PX, style.getDateHeaderTextSize());
