@@ -1032,24 +1032,24 @@ public class MessageHolders {
 
                 formattedDate = formattedDate == null ? DateFormatter.format(date, dateFormat) : formattedDate;
 
+                text.setGravity(Gravity.CENTER_HORIZONTAL);
                 if (formattedDate.isEmpty()) {
                     text.getLayoutParams().height = 0;
                     text.setVisibility(View.GONE);
                 } else {
                     this.text.setText(formattedDate);
                     text.setLayoutParams(new LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
-                    text.setGravity(Gravity.CENTER_HORIZONTAL);
                 }
             }
         }
 
         @Override
         public void applyStyle(MessagesListStyle style) {
+            text.setGravity(Gravity.CENTER_HORIZONTAL);
             if (text.getText().toString().isEmpty()) {
                 return;
             } else {
                 text.setLayoutParams(new LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
-                text.setGravity(Gravity.CENTER_HORIZONTAL);
             }
 
             if (text != null) {
