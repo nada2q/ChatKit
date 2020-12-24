@@ -1031,27 +1031,18 @@ public class MessageHolders {
                 if (dateHeadersFormatter != null) formattedDate = dateHeadersFormatter.format(date);
 
                 formattedDate = formattedDate == null ? DateFormatter.format(date, dateFormat) : formattedDate;
+                this.text.setText(formattedDate);
 
-                text.setGravity(Gravity.CENTER_HORIZONTAL);
                 if (formattedDate.isEmpty()) {
                     text.getLayoutParams().height = 0;
-                    text.setVisibility(View.GONE);
                 } else {
-                    this.text.setText(formattedDate);
-                    text.setLayoutParams(new LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
+                    text.setLayoutParams(new LayoutParams(MATCH_PARENT, WRAP_CONTENT));
                 }
             }
         }
 
         @Override
         public void applyStyle(MessagesListStyle style) {
-            text.setGravity(Gravity.CENTER_HORIZONTAL);
-            if (text.getText().toString().isEmpty()) {
-                return;
-            } else {
-                text.setLayoutParams(new LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
-            }
-
             if (text != null) {
                 text.setTextColor(style.getDateHeaderTextColor());
                 text.setTextSize(TypedValue.COMPLEX_UNIT_PX, style.getDateHeaderTextSize());

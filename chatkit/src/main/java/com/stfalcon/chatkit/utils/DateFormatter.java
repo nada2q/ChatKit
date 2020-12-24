@@ -31,7 +31,7 @@ public final class DateFormatter {
     }
 
     public static String format(Date date, String format) {
-        if (date == null) return "";
+        if (date == null || format == null) return "";
         return new SimpleDateFormat(format, Locale.getDefault())
                 .format(date);
     }
