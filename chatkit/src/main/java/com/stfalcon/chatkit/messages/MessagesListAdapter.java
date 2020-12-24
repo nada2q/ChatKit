@@ -941,24 +941,24 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
 
         @Override
         public void onBind(Date date) {
-            if (text != null) {
-                String formattedDate = null;
-                if (dateHeadersFormatter != null) formattedDate = dateHeadersFormatter.format(date);
-                text.setText(formattedDate == null ? DateFormatter.format(date, dateFormat) : formattedDate);
-            }
+//            if (text != null) {
+//                String formattedDate = null;
+//                if (dateHeadersFormatter != null) formattedDate = dateHeadersFormatter.format(date);
+//                text.setText(formattedDate == null ? DateFormatter.format(date, dateFormat) : formattedDate);
+//            }
         }
 
         @Override
         public void applyStyle(MessagesListStyle style) {
-            if (text != null) {
-                text.setTextColor(style.getDateHeaderTextColor());
-                text.setTextSize(TypedValue.COMPLEX_UNIT_PX, style.getDateHeaderTextSize());
-                text.setTypeface(text.getTypeface(), style.getDateHeaderTextStyle());
-                text.setPadding(style.getDateHeaderPadding(), style.getDateHeaderPadding(),
-                        style.getDateHeaderPadding(), style.getDateHeaderPadding());
-            }
-            dateFormat = style.getDateHeaderFormat();
-            dateFormat = dateFormat == null ? DateFormatter.Template.STRING_DAY_MONTH_YEAR.get() : dateFormat;
+//            if (text != null) {
+//                text.setTextColor(style.getDateHeaderTextColor());
+//                text.setTextSize(TypedValue.COMPLEX_UNIT_PX, style.getDateHeaderTextSize());
+//                text.setTypeface(text.getTypeface(), style.getDateHeaderTextStyle());
+//                text.setPadding(style.getDateHeaderPadding(), style.getDateHeaderPadding(),
+//                        style.getDateHeaderPadding(), style.getDateHeaderPadding());
+//            }
+//            dateFormat = style.getDateHeaderFormat();
+//            dateFormat = dateFormat == null ? DateFormatter.Template.STRING_DAY_MONTH_YEAR.get() : dateFormat;
         }
     }
 
