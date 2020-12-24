@@ -1019,7 +1019,11 @@ public class MessageHolders {
             if (text != null) {
                 String formattedDate = null;
                 if (dateHeadersFormatter != null) formattedDate = dateHeadersFormatter.format(date);
-                text.setText(formattedDate == null ? DateFormatter.format(date, dateFormat) : formattedDate);
+
+                formattedDate = formattedDate == null ? DateFormatter.format(date, dateFormat) : formattedDate;
+                this.text.setText(formattedDate);
+
+                if (formattedDate.isEmpty()) text.setVisibility(View.GONE);
             }
         }
 
