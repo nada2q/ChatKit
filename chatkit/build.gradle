@@ -27,7 +27,6 @@ android {
 //    website = 'https://github.com/stfalcon-studio/ChatKit.git'
 //}
 
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
